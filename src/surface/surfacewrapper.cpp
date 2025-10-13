@@ -152,7 +152,7 @@ SurfaceWrapper::SurfaceWrapper(QmlEngine *qmlEngine,
     setImplicitSize(m_surfaceItem->implicitWidth(), m_surfaceItem->implicitHeight());
 
     if (auto client = shellSurface->waylandClient()) {
-        connect(client->socket(),
+        connect(client->socket()->rootSocket(),
                 &WSocket::enabledChanged,
                 this,
                 &SurfaceWrapper::onSocketEnabledChanged);
